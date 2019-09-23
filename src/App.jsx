@@ -63,13 +63,9 @@ class App extends React.Component {
           }
           break;
         case 'VKWebAppOpenQRResult':
-          if (!detail.data.qr_data) {
-            this.startScanFlow();
+          if (detail.data.qr_data) {
+            this.handleQRResult(detail.data.qr_data);
           }
-          this.handleQRResult(detail.data.qr_data);
-          break;
-        case 'VKWebAppOpenQRFailed':
-          this.startScanFlow();
           break;
 
         // METHODS
